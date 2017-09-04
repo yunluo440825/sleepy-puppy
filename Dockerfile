@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+#docker build -t ubuntu:14.04
 FROM ubuntu:14.04
 MAINTAINER yunluo440825
 
@@ -27,3 +27,6 @@ ADD api-start.sh /usr/local/src/sleepy-puppy/scripts/api-start.sh
 RUN chmod +x /usr/local/src/sleepy-puppy/scripts/api-start.sh
 
 ENTRYPOINT ["/usr/local/src/sleepy-puppy/scripts/api-start.sh"]
+ENV PATH /usr/local/src/sleepy-puppy/scripts:$PATH
+EXPOSE 80
+CMD["sleepy-puppy"]
